@@ -103,6 +103,8 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "yii", name = "yi" }, "y_{i}"),
     parse_snippet({ trig = "xjj", name = "xj" }, "x_{j}"),
     parse_snippet({ trig = "yjj", name = "yj" }, "y_{j}"),
+    parse_snippet({ trig = "xkk", name = "xk" }, "x_{k}"),
+    parse_snippet({ trig = "ykk", name = "yk" }, "y_{k}"),
     parse_snippet({ trig = "xp1", name = "x" }, "x_{n+1}"),
     parse_snippet({ trig = "xmm", name = "x" }, "x_{m}"),
     parse_snippet({ trig = "R0+", name = "R0+" }, "\\mathbb{R}_0^+"),
@@ -126,7 +128,6 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "\\\\\\", name = "setminus" }, "\\setminus"),
     parse_snippet({ trig = "->", name = "to", priority = 100 }, "\\to "),
     parse_snippet({ trig = "-->", name = "long to", priority = 200 }, "\\longrightarrow "),
-
     parse_snippet({ trig = "letw", name = "let omega" }, "Let $\\Omega \\subset \\C$ be open."),
     parse_snippet({ trig = "nnn", name = "bigcap" }, "\\bigcap_{${1:i \\in ${2: I}}} $0"),
     parse_snippet({ trig = "norm", name = "norm" }, "\\|$1\\|$0"),
@@ -140,7 +141,7 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "xx", name = "cross" }, "\\times "),
 
     parse_snippet({ trig = "**", name = "cdot", priority = 100 }, "\\cdot "),
-
+    parse_snippet({trig = '_', name = "subscript"}, "_{$1} $0"),
     parse_snippet({ trig = ":=", name = "colon equals (lhs defined as rhs)" }, "\\coloneqq "),
 
     parse_snippet(
