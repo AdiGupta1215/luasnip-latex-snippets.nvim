@@ -90,7 +90,7 @@ function M.retrieve(is_math)
       end, {})
     ),
 
-    parse_snippet({ trig = "td", name = "to the ... power ^{}" }, "^{$1}$0 "),
+    parse_snippet({ trig = "tp", name = "to the ... power ^{}" }, "^{$1}$0 "),
     parse_snippet({ trig = "rd", name = "to the ... power ^{()}" }, "^{($1)}$0 "),
     parse_snippet({ trig = "cb", name = "Cube ^3" }, "^3 "),
     parse_snippet({ trig = "sr", name = "Square ^2" }, "^2"),
@@ -149,6 +149,15 @@ function M.retrieve(is_math)
       { trig = "cvec", name = "column vector" },
       "\\begin{pmatrix} ${1:x}_${2:1}\\\\ \\vdots\\\\ $1_${2:n} \\end{pmatrix}"
     ),
+
+  -- Unit Vectors
+  parse_snippet({ trig = ":i", name = "unit vector i" }, "\\mathbf{i}"),
+  parse_snippet({ trig = ":j", name = "unit vector j" }, "\\mathbf{j}"),
+  parse_snippet({ trig = ":k", name = "unit vector k" }, "\\mathbf{k}"),
+  parse_snippet({ trig = ":x", name = "unit vector x" }, "\\mathbf{x}"),
+  parse_snippet({ trig = ":y", name = "unit vector y" }, "\\mathbf{y}"),
+  parse_snippet({ trig = ":z", name = "unit vector z" }, "\\mathbf{z}"),
+
     parse_snippet({ trig = "ceil", name = "ceil" }, "\\left\\lceil $1 \\right\\rceil $0"),
     parse_snippet({ trig = "OO", name = "emptyset" }, "\\O"),
     parse_snippet({ trig = "RR", name = "R" }, "\\mathbb{R}"),
@@ -165,7 +174,7 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "lll", name = "l" }, "\\ell"),
     parse_snippet(
       { trig = "dint", name = "integral", priority = 300 },
-      "\\int_{${1:-\\infty}}^{${2:\\infty}} ${3:${TM_SELECTED_TEXT}} $0"
+      "\\int_{${1:-\\infty}}^{${2:\\infty}} ${3:${TM_SELECTED_TEXT}} \\d{${4:x}} $0"
     ),
 
     parse_snippet({ trig = "==", name = "equals" }, [[&= $1 \\\\]]),
@@ -182,6 +191,28 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "invs", name = "inverse" }, "^{-1}"),
     parse_snippet({ trig = "~~", name = "~" }, "\\sim "),
     parse_snippet({ trig = "conj", name = "conjugate" }, "\\overline{$1}$0"),
+
+    --MISC
+    parse_snippet({ trig = "rm", name = "mathrm" }, "\\mathrm{$1}$0"),
+    parse_snippet({ trig = "iint", name = "double integral" }, "\\iint"),
+    parse_snippet({ trig = "int", name = "iiintegral" }, "\\iiint"),
+    parse_snippet({ trig = "beg", name = "begin" }, "\\begin{$1}\n$2\n \\end{$1} $0"),
+    parse_snippet({ trig = "align", name = "align" }, "\\begin{align} \n $1 \n \\end{align} $0"),
+    parse_snippet({ trig = "text", name = "text" }, "\\text{$1}$0"),
+    parse_snippet({ trig = "det", name = "determinant" }, "\\det"),
+    parse_snippet({ trig = "~~", name = "similar" }, "\\sim"),
+    parse_snippet({ trig = "mbb", name = "mathbb" }, "\\mathbb{$1}$0"),
+    parse_snippet({ trig = "mbf", name = "mathbf" }, "\\mathbf{$1}$0"),
+    parse_snippet({ trig = "trace", name = "trace" }, "\\mathrm{Tr}"),
+    parse_snippet({ trig = "vec", name = "vector" }, "\\vec{$1}$0"),
+    parse_snippet({ trig = "tilde", name = "tilde" }, "\\tilde{$1}$0"),
+    parse_snippet({ trig = "und", name = "underline" }, "\\underline{$1}$0"),
+
+
+
+
+
+
   }
 end
 
