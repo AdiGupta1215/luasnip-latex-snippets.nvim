@@ -194,8 +194,8 @@ function M.retrieve(is_math)
 
     --MISC
     parse_snippet({ trig = "rm", name = "mathrm" }, "\\mathrm{$1}$0"),
-    parse_snippet({ trig = "iint", name = "double integral" }, "\\iint"),
-    parse_snippet({ trig = "int", name = "iiintegral" }, "\\iiint"),
+    parse_snippet({ trig = "iint", name = "double integral", priority = 100 }, "\\iint"),
+    parse_snippet({ trig = "int", name = "iiintegral", priority = 200 }, "\\iiint"),
     parse_snippet({ trig = "beg", name = "begin" }, "\\begin{$1}\n$2\n \\end{$1} $0"),
     parse_snippet({ trig = "align", name = "align" }, "\\begin{align} \n $1 \n \\end{align} $0"),
     parse_snippet({ trig = "text", name = "text" }, "\\text{$1}$0"),
